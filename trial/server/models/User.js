@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   name: String,
   email: String,
   password: String,
-  createdAt: Date,
-  credit: Number
+  credit: Number,
+  createdAt: Date
 });
 
-UserSchema.pre('save', async next => {
+UserSchema.pre('save', async function(next) {
   const user = this;
-  if (!user.isModified("password")) return next();
+  if (!user.isModified('password')) return next();
 
-  const isEqual = await bcrypt.hash(user.password, 10);
+  await bcrypt.hash(user.password, 10);
   next();
 });
 

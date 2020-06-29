@@ -44,6 +44,7 @@ export default function Register() {
     setEmailError(null);
     setPasswordError(null);
     let errors = 0;
+    let credit = 0;
 
     if (!validator.isEmail(email)) {
       setEmailError("Email must be in correct format");
@@ -60,7 +61,8 @@ export default function Register() {
     const data = {
       name,
       email,
-      password
+      password,
+      credit
     };
 
     try {
