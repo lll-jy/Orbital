@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
-import Form from "./Components/Form";
+import Data from "./Components/Data";
 
 function App() {
   const [isInitiated, setIsInitiated] = useState(false);
@@ -22,7 +22,7 @@ function App() {
 	  <Navbar />
 	  <Switch>
 	    <Route path="/" exact>
-	      <Form />
+	      <Data />
 	    </Route>
 	  </Switch>
 	</Router>
