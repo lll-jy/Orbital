@@ -67,6 +67,7 @@ const allGceMods = [
   'Mathematics',
   'Physics',
   'Biology',
+  'Chemistry',
   'QET Band2 or equivalent',
   'QET Band3 or equivalent'
 ];//TODO: need to complete the list of gce modules
@@ -402,7 +403,9 @@ export default function Form(props) {
     } else {
       prerequisites.push(mod.equivalent);
     }
-    modulesTaken.push(mod);
+    let temp = modulesTaken;
+    temp.push(mod);
+    setModulesTaken(temp);
   };
 
   const handleModuleCheck = () => {
@@ -502,6 +505,7 @@ export default function Form(props) {
     let PC1221 = props.moduleMap["PC1221"];
     let PC1222 = props.moduleMap["PC1222"];
     let LSM1301 = props.moduleMap["LSM1301"];
+    let CM1417 = props.moduleMap["CM1417"];
     let ES1000 = props.moduleMap["ES1000"];
     let ES1103 = props.moduleMap["ES1103"];
     if (mods.includes("Mathematics")) {
@@ -535,6 +539,15 @@ export default function Form(props) {
     } else {
       if (!modulesTaken.includes(LSM1301)) {
 	setPrerequisites(prerequisites.filter(m => m.code !== "LSM1301"));
+      }
+    }
+    if (mods.includes("Chemistry")) {
+      if (!prerequisites.includes(CM1417)) {
+	prerequisites.push(CM1417);
+      }
+    } else {
+      if (!modulesTaken.includes(CM1417)) {
+	setPrerequisites(prerequisites.filter(m => m.code !== "CM1417"));
       }
     }
     if (mods.includes("QET Band2 or equivalent")) {
@@ -656,10 +669,12 @@ export default function Form(props) {
       let completed = 0;
       let notCompleted = [];
       for (let j = 0; j < requirements[i].list.length && completed < requirements[i].mc; j++) {
-	if (prerequisites.includes(requirements[i].list[j])) {
-	  completed += requirements[i].list[j].mc;
+	let thisMod = requirements[i].list[j];
+        thisMod = thisMod.equivalent === null ? thisMod : thisMod.equivalent;
+	if (prerequisites.includes(thisMod)) {
+	  completed += thisMod.mc;
 	} else {
-	  notCompleted.push(requirements[i].list[j]);
+	  notCompleted.push(thisMod);
 	}
       }
       if (completed < requirements[i].mc) {
@@ -670,7 +685,7 @@ export default function Form(props) {
 	  if (possible) {
 	    toRecommend.push(mod);
 	    canRecommend.push(mod);
-	  } else if (mod.offered && mod.sem1) { //TODO: may change the sem
+	  } else if (mod.offered && mod.sem1 && !toRecommend.includes(equiv)) { //TODO: may change the sem
 	    let currentSmallest = 100;
 	    let mods = [];
 	    for (let k = 0; k < props.prerequisitesMap[equiv.code].length; k++) {
