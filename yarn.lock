@@ -1145,9 +1145,9 @@ lazy-cache@^1.0.3:
   integrity sha1-odePw6UEdMuAhF07O24dpJpEbo4=
 
 lodash@^4.0.0, lodash@^4.17.14, lodash@^4.6.1:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 longest@^1.0.1:
   version "1.0.1"
@@ -1659,7 +1659,7 @@ stack-trace@0.0.x:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
-"stormpath-config@github:stormpath/stormpath-node-config#okta", stormpath-config@stormpath/stormpath-node-config#okta:
+stormpath-config@stormpath/stormpath-node-config#okta:
   version "0.0.27"
   resolved "https://codeload.github.com/stormpath/stormpath-node-config/tar.gz/0cf1158865646f5f3d97856b98afaacaaea8d4b9"
   dependencies:
@@ -1669,8 +1669,9 @@ stack-trace@0.0.x:
     lodash "^4.0.0"
     properties-parser "^0.3.0"
 
-"stormpath@github:stormpath/stormpath-sdk-node#1.0.0-rc5":
+stormpath@stormpath/stormpath-sdk-node#1.0.0-rc5:
   version "1.0.0-rc4"
+  uid "39637f656dacc03327e1482a3f993445f7b21b4b"
   resolved "https://codeload.github.com/stormpath/stormpath-sdk-node/tar.gz/39637f656dacc03327e1482a3f993445f7b21b4b"
   dependencies:
     async "~1.5.2"
